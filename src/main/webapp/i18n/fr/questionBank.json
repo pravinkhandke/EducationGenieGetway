@@ -1,0 +1,36 @@
+
+{
+    "educationGenieApp": {
+        "questionBank" : {
+            "home": {
+                "title": "QuestionBanks",
+                "createLabel": "Créer un nouveau Question Bank",
+                "createOrEditLabel": "Créer ou éditer un Question Bank",
+                "search": "Recherche pour Question Bank"
+            },
+            "created": "Un nouveau Question Bank a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Question Bank avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Question Bank avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Question Bank {{ id }} ?"
+            },
+            "detail": {
+                "title": "Question Bank"
+            },
+            "title": "Title",
+            "duration": "Duration",
+            "state": "State",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time",
+            "userInfo": "User Info",
+            "score": "Score",
+            "subject": "Subject",
+            "grade": "Grade",
+            "chapter": "Chapter",
+            "topic": "Topic",
+            "questions": "Questions"
+        }
+    }
+}

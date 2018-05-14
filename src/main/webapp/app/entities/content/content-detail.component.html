@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="content">
+            <h2><span jhiTranslate="educationGenieApp.content.detail.title">Content</span> {{content.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="educationGenieApp.content.contentType">Content Type</span></dt>
+                <dd>
+                    <span>{{content.contentType}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.url">Url</span></dt>
+                <dd>
+                    <span>{{content.url}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.mediaType">Media Type</span></dt>
+                <dd>
+                    <span>{{content.mediaType}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.language">Language</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'educationGenieApp.Language.' + content.language}}">{{content.language}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.state">State</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'educationGenieApp.State.' + content.state}}">{{content.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.createBy">Create By</span></dt>
+                <dd>
+                    <span>{{content.createBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.createdTime">Created Time</span></dt>
+                <dd>
+                    <span>{{content.createdTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.updatedBy">Updated By</span></dt>
+                <dd>
+                    <span>{{content.updatedBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.updatedTime">Updated Time</span></dt>
+                <dd>
+                    <span>{{content.updatedTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.subject">Subject</span></dt>
+                <dd>
+                    <div *ngIf="content.subjectId">
+                        <a [routerLink]="['/subject', content.subjectId, 'view']">{{content.subjectId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.chapter">Chapter</span></dt>
+                <dd>
+                    <div *ngIf="content.chapterId">
+                        <a [routerLink]="['/chapter', content.chapterId, 'view']">{{content.chapterId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.topic">Topic</span></dt>
+                <dd>
+                    <div *ngIf="content.topicId">
+                        <a [routerLink]="['/topic', content.topicId, 'view']">{{content.topicId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.grade">Grade</span></dt>
+                <dd>
+                    <span *ngFor="let grade of content.grades; let last = last">
+                        <a [routerLink]="['/grade', grade?.id, 'view' ]">{{grade.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.content.userInfo">User Info</span></dt>
+                <dd>
+                    <div *ngIf="content.userInfoId">
+                        <a [routerLink]="['/user-info', content.userInfoId, 'view']">{{content.userInfoId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/content', content.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+
+{
+    "educationGenieApp": {
+        "contentList" : {
+            "home": {
+                "title": "Content Lists",
+                "createLabel": "Create a new Content List",
+                "createOrEditLabel": "Create or edit a Content List",
+                "search": "Search for Content List"
+            },
+            "created": "A new Content List is created with identifier {{ param }}",
+            "updated": "A Content List is updated with identifier {{ param }}",
+            "deleted": "A Content List is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Content List {{ id }}?"
+            },
+            "detail": {
+                "title": "Content List"
+            },
+            "listTitle": "List Title",
+            "content": "Content"
+        }
+    }
+}

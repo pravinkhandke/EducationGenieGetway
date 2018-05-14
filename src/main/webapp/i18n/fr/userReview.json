@@ -1,0 +1,28 @@
+
+{
+    "educationGenieApp": {
+        "userReview" : {
+            "home": {
+                "title": "UserReviews",
+                "createLabel": "Créer un nouveau User Review",
+                "createOrEditLabel": "Créer ou éditer un User Review",
+                "search": "Recherche pour User Review"
+            },
+            "created": "Un nouveau User Review a été créé avec l'identifiant {{ param }}",
+            "updated": "Le User Review avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le User Review avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le User Review {{ id }} ?"
+            },
+            "detail": {
+                "title": "User Review"
+            },
+            "raiting": "Raiting",
+            "review": "Review",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time"
+        }
+    }
+}

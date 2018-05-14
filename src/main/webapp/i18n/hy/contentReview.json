@@ -1,0 +1,29 @@
+
+{
+    "educationGenieApp": {
+        "contentReview" : {
+            "home": {
+                "title": "Content Reviews",
+                "createLabel": "Ստեղծել նոր Content Review",
+                "createOrEditLabel": "Ստեղծել կամ փոփոխել Content Review",
+                "search": "Գտնել Content Review"
+            },
+            "created": "Նոր Content Review ստեղծված է {{ param }} նունացուցիչով",
+            "updated": "Content Review թարմացվաց է {{ param }} նունացուցիչով",
+            "deleted": "Content Review հեռացված է {{ param }}  նունացուցիչով",
+            "delete": {
+                "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Content Review {{ id }}?"
+            },
+            "detail": {
+                "title": "Content Review"
+            },
+            "raiting": "Raiting",
+            "review": "Review",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time",
+            "content": "Content"
+        }
+    }
+}

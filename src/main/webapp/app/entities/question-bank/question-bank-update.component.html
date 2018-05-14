@@ -1,0 +1,140 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-question-bank-heading" jhiTranslate="educationGenieApp.questionBank.home.createOrEditLabel">Create or edit a Question Bank</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!questionBank.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="questionBank.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                        [(ngModel)]="questionBank.title" required maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.title?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.duration" for="field_duration">Duration</label>
+                    <input type="number" class="form-control" name="duration" id="field_duration"
+                        [(ngModel)]="questionBank.duration" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.state" for="field_state">State</label>
+                    <select class="form-control" name="state" [(ngModel)]="questionBank.state" id="field_state"  required>
+                        <option value="ACTIVE">{{'educationGenieApp.State.ACTIVE' | translate}}</option>
+                        <option value="INACTIVE">{{'educationGenieApp.State.INACTIVE' | translate}}</option>
+                        <option value="DELETED">{{'educationGenieApp.State.DELETED' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.state?.dirty && editForm.controls.state?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.state?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.createBy" for="field_createBy">Create By</label>
+                    <input type="text" class="form-control" name="createBy" id="field_createBy"
+                        [(ngModel)]="questionBank.createBy" required maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.createBy?.dirty && editForm.controls.createBy?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createBy?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.createdTime" for="field_createdTime">Created Time</label>
+                    <div class="d-flex">
+                        <input id="field_createdTime" type="datetime-local" class="form-control" name="createdTime" [(ngModel)]="createdTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.updatedBy" for="field_updatedBy">Updated By</label>
+                    <input type="text" class="form-control" name="updatedBy" id="field_updatedBy"
+                        [(ngModel)]="questionBank.updatedBy" maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.updatedBy?.dirty && editForm.controls.updatedBy?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.updatedBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.updatedTime" for="field_updatedTime">Updated Time</label>
+                    <div class="d-flex">
+                        <input id="field_updatedTime" type="datetime-local" class="form-control" name="updatedTime" [(ngModel)]="updatedTime"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.userInfo" for="field_userInfo">User Info</label>
+                    <select class="form-control" id="field_userInfo" name="userInfo" [(ngModel)]="questionBank.userInfoId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userInfoOption.id" *ngFor="let userInfoOption of userinfos; trackBy: trackUserInfoById">{{userInfoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.score" for="field_score">Score</label>
+                    <select class="form-control" id="field_score" name="score" [(ngModel)]="questionBank.scoreId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="scoreOption.id" *ngFor="let scoreOption of scores; trackBy: trackScoreById">{{scoreOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.subject" for="field_subject">Subject</label>
+                    <select class="form-control" id="field_subject" name="subject" [(ngModel)]="questionBank.subjectId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="subjectOption.id" *ngFor="let subjectOption of subjects; trackBy: trackSubjectById">{{subjectOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.grade" for="field_grade">Grade</label>
+                    <select class="form-control" id="field_grade" name="grade" [(ngModel)]="questionBank.gradeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="gradeOption.id" *ngFor="let gradeOption of grades; trackBy: trackGradeById">{{gradeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.chapter" for="field_chapter">Chapter</label>
+                    <select class="form-control" id="field_chapter" name="chapter" [(ngModel)]="questionBank.chapterId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="chapterOption.id" *ngFor="let chapterOption of chapters; trackBy: trackChapterById">{{chapterOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.questionBank.topic" for="field_topic">Topic</label>
+                    <select class="form-control" id="field_topic" name="topic" [(ngModel)]="questionBank.topicId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="topicOption.id" *ngFor="let topicOption of topics; trackBy: trackTopicById">{{topicOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fas fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fas fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-content-list-heading" jhiTranslate="educationGenieApp.contentList.home.createOrEditLabel">Create or edit a Content List</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!contentList.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="contentList.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.contentList.listTitle" for="field_listTitle">List Title</label>
+                    <input type="text" class="form-control" name="listTitle" id="field_listTitle"
+                        [(ngModel)]="contentList.listTitle" required/>
+                    <div [hidden]="!(editForm.controls.listTitle?.dirty && editForm.controls.listTitle?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.listTitle?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.contentList.content" for="field_content">Content</label>
+                    <select class="form-control" id="field_content" name="content" [(ngModel)]="contentList.contentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contentOption.id" *ngFor="let contentOption of contents; trackBy: trackContentById">{{contentOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fas fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fas fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+
+{
+    "educationGenieApp": {
+        "questionBank" : {
+            "home": {
+                "title": "Question Banks",
+                "createLabel": "Ստեղծել նոր Question Bank",
+                "createOrEditLabel": "Ստեղծել կամ փոփոխել Question Bank",
+                "search": "Գտնել Question Bank"
+            },
+            "created": "Նոր Question Bank ստեղծված է {{ param }} նունացուցիչով",
+            "updated": "Question Bank թարմացվաց է {{ param }} նունացուցիչով",
+            "deleted": "Question Bank հեռացված է {{ param }}  նունացուցիչով",
+            "delete": {
+                "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Question Bank {{ id }}?"
+            },
+            "detail": {
+                "title": "Question Bank"
+            },
+            "title": "Title",
+            "duration": "Duration",
+            "state": "State",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time",
+            "userInfo": "User Info",
+            "score": "Score",
+            "subject": "Subject",
+            "grade": "Grade",
+            "chapter": "Chapter",
+            "topic": "Topic",
+            "questions": "Questions"
+        }
+    }
+}

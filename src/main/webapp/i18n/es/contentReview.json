@@ -1,0 +1,29 @@
+
+{
+    "educationGenieApp": {
+        "contentReview" : {
+            "home": {
+                "title": "Content Reviews",
+                "createLabel": "Crear nuevo Content Review",
+                "createOrEditLabel": "Crear o editar Content Review",
+                "search": "Search for Content Review"
+            },
+            "created": "Un nuevo Content Review ha sido creado con el identificador {{ param }}",
+            "updated": "Un Content Review ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Content Review ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Content Review {{ id }}?"
+            },
+            "detail": {
+                "title": "Content Review"
+            },
+            "raiting": "Raiting",
+            "review": "Review",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time",
+            "content": "Content"
+        }
+    }
+}

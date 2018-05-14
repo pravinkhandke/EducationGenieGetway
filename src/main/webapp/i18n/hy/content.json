@@ -1,0 +1,38 @@
+
+{
+    "educationGenieApp": {
+        "content" : {
+            "home": {
+                "title": "Contents",
+                "createLabel": "Ստեղծել նոր Content",
+                "createOrEditLabel": "Ստեղծել կամ փոփոխել Content",
+                "search": "Գտնել Content"
+            },
+            "created": "Նոր Content ստեղծված է {{ param }} նունացուցիչով",
+            "updated": "Content թարմացվաց է {{ param }} նունացուցիչով",
+            "deleted": "Content հեռացված է {{ param }}  նունացուցիչով",
+            "delete": {
+                "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Content {{ id }}?"
+            },
+            "detail": {
+                "title": "Content"
+            },
+            "contentType": "Content Type",
+            "url": "Url",
+            "mediaType": "Media Type",
+            "language": "Language",
+            "state": "State",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time",
+            "subject": "Subject",
+            "chapter": "Chapter",
+            "topic": "Topic",
+            "contentList": "Content List",
+            "contentreview": "Contentreview",
+            "grade": "Grade",
+            "userInfo": "User Info"
+        }
+    }
+}

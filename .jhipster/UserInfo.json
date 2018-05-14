@@ -1,0 +1,58 @@
+{
+    "fields": [
+        {
+            "fieldName": "userType",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 30
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "userReview",
+            "otherEntityName": "userReview",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userInfo"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "grade",
+            "otherEntityName": "grade",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userInfo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "content",
+            "otherEntityName": "content",
+            "otherEntityRelationshipName": "userInfo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "score",
+            "otherEntityName": "score",
+            "otherEntityRelationshipName": "userInfo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "questionBank",
+            "otherEntityName": "questionBank",
+            "otherEntityRelationshipName": "userInfo"
+        }
+    ],
+    "changelogDate": "20180514205553",
+    "entityTableName": "user_info",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

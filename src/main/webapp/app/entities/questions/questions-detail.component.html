@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="questions">
+            <h2><span jhiTranslate="educationGenieApp.questions.detail.title">Questions</span> {{questions.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="educationGenieApp.questions.options">Options</span></dt>
+                <dd>
+                    <span>{{questions.options}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questions.answers">Answers</span></dt>
+                <dd>
+                    <span>{{questions.answers}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questions.createBy">Create By</span></dt>
+                <dd>
+                    <span>{{questions.createBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questions.createdTime">Created Time</span></dt>
+                <dd>
+                    <span>{{questions.createdTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questions.updatedBy">Updated By</span></dt>
+                <dd>
+                    <span>{{questions.updatedBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questions.updatedTime">Updated Time</span></dt>
+                <dd>
+                    <span>{{questions.updatedTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questions.questionBank">Question Bank</span></dt>
+                <dd>
+                    <div *ngIf="questions.questionBankId">
+                        <a [routerLink]="['/question-bank', questions.questionBankId, 'view']">{{questions.questionBankId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/questions', questions.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

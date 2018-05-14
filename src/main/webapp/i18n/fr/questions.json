@@ -1,0 +1,29 @@
+
+{
+    "educationGenieApp": {
+        "questions" : {
+            "home": {
+                "title": "Questions",
+                "createLabel": "Créer un nouveau Questions",
+                "createOrEditLabel": "Créer ou éditer un Questions",
+                "search": "Recherche pour Questions"
+            },
+            "created": "Un nouveau Questions a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Questions avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Questions avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Questions {{ id }} ?"
+            },
+            "detail": {
+                "title": "Questions"
+            },
+            "options": "Options",
+            "answers": "Answers",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time",
+            "questionBank": "Question Bank"
+        }
+    }
+}

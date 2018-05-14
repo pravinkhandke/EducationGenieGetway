@@ -1,0 +1,32 @@
+{
+    "fields": [
+        {
+            "fieldName": "grade",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "subject",
+            "otherEntityName": "subject",
+            "otherEntityRelationshipName": "grade"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "content",
+            "otherEntityName": "content",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "grade"
+        }
+    ],
+    "changelogDate": "20180514205549",
+    "entityTableName": "grade",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

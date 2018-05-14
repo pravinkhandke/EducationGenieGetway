@@ -1,0 +1,25 @@
+
+{
+    "educationGenieApp": {
+        "grade" : {
+            "home": {
+                "title": "Grades",
+                "createLabel": "Ստեղծել նոր Grade",
+                "createOrEditLabel": "Ստեղծել կամ փոփոխել Grade",
+                "search": "Գտնել Grade"
+            },
+            "created": "Նոր Grade ստեղծված է {{ param }} նունացուցիչով",
+            "updated": "Grade թարմացվաց է {{ param }} նունացուցիչով",
+            "deleted": "Grade հեռացված է {{ param }}  նունացուցիչով",
+            "delete": {
+                "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Grade {{ id }}?"
+            },
+            "detail": {
+                "title": "Grade"
+            },
+            "grade": "Grade",
+            "subject": "Subject",
+            "content": "Content"
+        }
+    }
+}

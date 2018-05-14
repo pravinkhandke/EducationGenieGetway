@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userReview">
+            <h2><span jhiTranslate="educationGenieApp.userReview.detail.title">User Review</span> {{userReview.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="educationGenieApp.userReview.raiting">Raiting</span></dt>
+                <dd>
+                    <span>{{userReview.raiting}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.userReview.review">Review</span></dt>
+                <dd>
+                    <span>{{userReview.review}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.userReview.createBy">Create By</span></dt>
+                <dd>
+                    <span>{{userReview.createBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.userReview.createdTime">Created Time</span></dt>
+                <dd>
+                    <span>{{userReview.createdTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.userReview.updatedBy">Updated By</span></dt>
+                <dd>
+                    <span>{{userReview.updatedBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.userReview.updatedTime">Updated Time</span></dt>
+                <dd>
+                    <span>{{userReview.updatedTime}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-review', userReview.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

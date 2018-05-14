@@ -1,0 +1,109 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="educationGenieApp.content.home.title">Contents</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-content" [routerLink]="['/content/new']">
+            <span class="fas fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="educationGenieApp.content.home.createLabel">
+            Create new Content
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'educationGenieApp.content.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fas fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fas fa-trash-alt"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="contents">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="contentType"><span jhiTranslate="educationGenieApp.content.contentType">Content Type</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="url"><span jhiTranslate="educationGenieApp.content.url">Url</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="mediaType"><span jhiTranslate="educationGenieApp.content.mediaType">Media Type</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="language"><span jhiTranslate="educationGenieApp.content.language">Language</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="state"><span jhiTranslate="educationGenieApp.content.state">State</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="createBy"><span jhiTranslate="educationGenieApp.content.createBy">Create By</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="createdTime"><span jhiTranslate="educationGenieApp.content.createdTime">Created Time</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="educationGenieApp.content.updatedBy">Updated By</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="updatedTime"><span jhiTranslate="educationGenieApp.content.updatedTime">Updated Time</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="subjectId"><span jhiTranslate="educationGenieApp.content.subject">Subject</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="chapterId"><span jhiTranslate="educationGenieApp.content.chapter">Chapter</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="topicId"><span jhiTranslate="educationGenieApp.content.topic">Topic</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="userInfoId"><span jhiTranslate="educationGenieApp.content.userInfo">User Info</span> <span class="fas fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let content of contents ;trackBy: trackId">
+                <td><a [routerLink]="['/content', content.id, 'view' ]">{{content.id}}</a></td>
+                <td>{{content.contentType}}</td>
+                <td>{{content.url}}</td>
+                <td>{{content.mediaType}}</td>
+                <td jhiTranslate="{{'educationGenieApp.Language.' + content.language}}">{{content.language}}</td>
+                <td jhiTranslate="{{'educationGenieApp.State.' + content.state}}">{{content.state}}</td>
+                <td>{{content.createBy}}</td>
+                <td>{{content.createdTime | date:'medium'}}</td>
+                <td>{{content.updatedBy}}</td>
+                <td>{{content.updatedTime | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="content.subjectId">
+                        <a [routerLink]="['../subject', content.subjectId , 'view' ]" >{{content.subjectId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="content.chapterId">
+                        <a [routerLink]="['../chapter', content.chapterId , 'view' ]" >{{content.chapterId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="content.topicId">
+                        <a [routerLink]="['../topic', content.topicId , 'view' ]" >{{content.topicId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="content.userInfoId">
+                        <a [routerLink]="['../user-info', content.userInfoId , 'view' ]" >{{content.userInfoId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/content', content.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fas fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/content', content.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <span class="fas fa-pencil-alt"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'content/'+ content.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fas fa-times"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

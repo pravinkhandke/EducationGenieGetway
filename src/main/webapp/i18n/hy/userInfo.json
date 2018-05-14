@@ -1,0 +1,28 @@
+
+{
+    "educationGenieApp": {
+        "userInfo" : {
+            "home": {
+                "title": "User Infos",
+                "createLabel": "Ստեղծել նոր User Info",
+                "createOrEditLabel": "Ստեղծել կամ փոփոխել User Info",
+                "search": "Գտնել User Info"
+            },
+            "created": "Նոր User Info ստեղծված է {{ param }} նունացուցիչով",
+            "updated": "User Info թարմացվաց է {{ param }} նունացուցիչով",
+            "deleted": "User Info հեռացված է {{ param }}  նունացուցիչով",
+            "delete": {
+                "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել User Info {{ id }}?"
+            },
+            "detail": {
+                "title": "User Info"
+            },
+            "userType": "User Type",
+            "userReview": "User Review",
+            "grade": "Grade",
+            "content": "Content",
+            "score": "Score",
+            "questionBank": "Question Bank"
+        }
+    }
+}

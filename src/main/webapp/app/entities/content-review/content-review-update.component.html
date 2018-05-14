@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-content-review-heading" jhiTranslate="educationGenieApp.contentReview.home.createOrEditLabel">Create or edit a Content Review</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!contentReview.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="contentReview.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.contentReview.raiting" for="field_raiting">Raiting</label>
+                    <input type="number" class="form-control" name="raiting" id="field_raiting"
+                        [(ngModel)]="contentReview.raiting" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.contentReview.review" for="field_review">Review</label>
+                    <input type="text" class="form-control" name="review" id="field_review"
+                        [(ngModel)]="contentReview.review" maxlength="1000"/>
+                    <div [hidden]="!(editForm.controls.review?.dirty && editForm.controls.review?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.review?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 1000 }">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.contentReview.createBy" for="field_createBy">Create By</label>
+                    <input type="text" class="form-control" name="createBy" id="field_createBy"
+                        [(ngModel)]="contentReview.createBy" required maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.createBy?.dirty && editForm.controls.createBy?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createBy?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.contentReview.createdTime" for="field_createdTime">Created Time</label>
+                    <div class="d-flex">
+                        <input id="field_createdTime" type="datetime-local" class="form-control" name="createdTime" [(ngModel)]="createdTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.contentReview.updatedBy" for="field_updatedBy">Updated By</label>
+                    <input type="text" class="form-control" name="updatedBy" id="field_updatedBy"
+                        [(ngModel)]="contentReview.updatedBy" maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.updatedBy?.dirty && editForm.controls.updatedBy?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.updatedBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.contentReview.updatedTime" for="field_updatedTime">Updated Time</label>
+                    <div class="d-flex">
+                        <input id="field_updatedTime" type="datetime-local" class="form-control" name="updatedTime" [(ngModel)]="updatedTime"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.contentReview.content" for="field_content">Content</label>
+                    <select class="form-control" id="field_content" name="content" [(ngModel)]="contentReview.contentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contentOption.id" *ngFor="let contentOption of contents; trackBy: trackContentById">{{contentOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fas fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fas fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+
+{
+    "educationGenieApp": {
+        "content" : {
+            "home": {
+                "title": "Contents",
+                "createLabel": "Crear nuevo Content",
+                "createOrEditLabel": "Crear o editar Content",
+                "search": "Search for Content"
+            },
+            "created": "Un nuevo Content ha sido creado con el identificador {{ param }}",
+            "updated": "Un Content ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Content ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Content {{ id }}?"
+            },
+            "detail": {
+                "title": "Content"
+            },
+            "contentType": "Content Type",
+            "url": "Url",
+            "mediaType": "Media Type",
+            "language": "Language",
+            "state": "State",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time",
+            "subject": "Subject",
+            "chapter": "Chapter",
+            "topic": "Topic",
+            "contentList": "Content List",
+            "contentreview": "Contentreview",
+            "grade": "Grade",
+            "userInfo": "User Info"
+        }
+    }
+}

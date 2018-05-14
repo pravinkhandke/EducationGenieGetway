@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="score">
+            <h2><span jhiTranslate="educationGenieApp.score.detail.title">Score</span> {{score.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="educationGenieApp.score.score">Score</span></dt>
+                <dd>
+                    <span>{{score.score}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.score.userInfo">User Info</span></dt>
+                <dd>
+                    <div *ngIf="score.userInfoId">
+                        <a [routerLink]="['/user-info', score.userInfoId, 'view']">{{score.userInfoId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/score', score.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

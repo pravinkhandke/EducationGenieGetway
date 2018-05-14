@@ -7,6 +7,18 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Էություններ",
+                "content": "Content",
+                "contentList": "Content List",
+                "grade": "Grade",
+                "subject": "Subject",
+                "chapter": "Chapter",
+                "topic": "Topic",
+                "userInfo": "User Info",
+                "questionBank": "Question Bank",
+                "questions": "Questions",
+                "score": "Score",
+                "userReview": "User Review",
+                "contentReview": "Content Review",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

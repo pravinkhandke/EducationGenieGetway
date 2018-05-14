@@ -1,0 +1,164 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-content-heading" jhiTranslate="educationGenieApp.content.home.createOrEditLabel">Create or edit a Content</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!content.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="content.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.contentType" for="field_contentType">Content Type</label>
+                    <input type="text" class="form-control" name="contentType" id="field_contentType"
+                        [(ngModel)]="content.contentType" required maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.contentType?.dirty && editForm.controls.contentType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.contentType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.contentType?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.url" for="field_url">Url</label>
+                    <input type="text" class="form-control" name="url" id="field_url"
+                        [(ngModel)]="content.url" required maxlength="255"/>
+                    <div [hidden]="!(editForm.controls.url?.dirty && editForm.controls.url?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.url?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.url?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.mediaType" for="field_mediaType">Media Type</label>
+                    <input type="text" class="form-control" name="mediaType" id="field_mediaType"
+                        [(ngModel)]="content.mediaType" required maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.mediaType?.dirty && editForm.controls.mediaType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.mediaType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.mediaType?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.language" for="field_language">Language</label>
+                    <select class="form-control" name="language" [(ngModel)]="content.language" id="field_language" >
+                        <option value="ENGLISH">{{'educationGenieApp.Language.ENGLISH' | translate}}</option>
+                        <option value="HINDI">{{'educationGenieApp.Language.HINDI' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.state" for="field_state">State</label>
+                    <select class="form-control" name="state" [(ngModel)]="content.state" id="field_state"  required>
+                        <option value="ACTIVE">{{'educationGenieApp.State.ACTIVE' | translate}}</option>
+                        <option value="INACTIVE">{{'educationGenieApp.State.INACTIVE' | translate}}</option>
+                        <option value="DELETED">{{'educationGenieApp.State.DELETED' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.state?.dirty && editForm.controls.state?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.state?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.createBy" for="field_createBy">Create By</label>
+                    <input type="text" class="form-control" name="createBy" id="field_createBy"
+                        [(ngModel)]="content.createBy" required maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.createBy?.dirty && editForm.controls.createBy?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createBy?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.createdTime" for="field_createdTime">Created Time</label>
+                    <div class="d-flex">
+                        <input id="field_createdTime" type="datetime-local" class="form-control" name="createdTime" [(ngModel)]="createdTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.updatedBy" for="field_updatedBy">Updated By</label>
+                    <input type="text" class="form-control" name="updatedBy" id="field_updatedBy"
+                        [(ngModel)]="content.updatedBy" maxlength="30"/>
+                    <div [hidden]="!(editForm.controls.updatedBy?.dirty && editForm.controls.updatedBy?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.updatedBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.updatedTime" for="field_updatedTime">Updated Time</label>
+                    <div class="d-flex">
+                        <input id="field_updatedTime" type="datetime-local" class="form-control" name="updatedTime" [(ngModel)]="updatedTime"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.subject" for="field_subject">Subject</label>
+                    <select class="form-control" id="field_subject" name="subject" [(ngModel)]="content.subjectId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="subjectOption.id" *ngFor="let subjectOption of subjects; trackBy: trackSubjectById">{{subjectOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.chapter" for="field_chapter">Chapter</label>
+                    <select class="form-control" id="field_chapter" name="chapter" [(ngModel)]="content.chapterId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="chapterOption.id" *ngFor="let chapterOption of chapters; trackBy: trackChapterById">{{chapterOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.topic" for="field_topic">Topic</label>
+                    <select class="form-control" id="field_topic" name="topic" [(ngModel)]="content.topicId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="topicOption.id" *ngFor="let topicOption of topics; trackBy: trackTopicById">{{topicOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="educationGenieApp.content.grade" for="field_grade">Grade</label>
+                    <select class="form-control" id="field_grade" multiple name="grade" [(ngModel)]="content.grades">
+                        <option [ngValue]="getSelected(content.grades, gradeOption)" *ngFor="let gradeOption of grades; trackBy: trackGradeById">{{gradeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="educationGenieApp.content.userInfo" for="field_userInfo">User Info</label>
+                    <select class="form-control" id="field_userInfo" name="userInfo" [(ngModel)]="content.userInfoId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userInfoOption.id" *ngFor="let userInfoOption of userinfos; trackBy: trackUserInfoById">{{userInfoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fas fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fas fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

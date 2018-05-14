@@ -1,0 +1,117 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="educationGenieApp.questionBank.home.title">Question Banks</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-question-bank" [routerLink]="['/question-bank/new']">
+            <span class="fas fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="educationGenieApp.questionBank.home.createLabel">
+            Create new Question Bank
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'educationGenieApp.questionBank.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fas fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fas fa-trash-alt"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="questionBanks">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="title"><span jhiTranslate="educationGenieApp.questionBank.title">Title</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="duration"><span jhiTranslate="educationGenieApp.questionBank.duration">Duration</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="state"><span jhiTranslate="educationGenieApp.questionBank.state">State</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="createBy"><span jhiTranslate="educationGenieApp.questionBank.createBy">Create By</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="createdTime"><span jhiTranslate="educationGenieApp.questionBank.createdTime">Created Time</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="educationGenieApp.questionBank.updatedBy">Updated By</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="updatedTime"><span jhiTranslate="educationGenieApp.questionBank.updatedTime">Updated Time</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="userInfoId"><span jhiTranslate="educationGenieApp.questionBank.userInfo">User Info</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="scoreId"><span jhiTranslate="educationGenieApp.questionBank.score">Score</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="subjectId"><span jhiTranslate="educationGenieApp.questionBank.subject">Subject</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="gradeId"><span jhiTranslate="educationGenieApp.questionBank.grade">Grade</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="chapterId"><span jhiTranslate="educationGenieApp.questionBank.chapter">Chapter</span> <span class="fas fa-sort"></span></th>
+            <th jhiSortBy="topicId"><span jhiTranslate="educationGenieApp.questionBank.topic">Topic</span> <span class="fas fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let questionBank of questionBanks ;trackBy: trackId">
+                <td><a [routerLink]="['/question-bank', questionBank.id, 'view' ]">{{questionBank.id}}</a></td>
+                <td>{{questionBank.title}}</td>
+                <td>{{questionBank.duration}}</td>
+                <td jhiTranslate="{{'educationGenieApp.State.' + questionBank.state}}">{{questionBank.state}}</td>
+                <td>{{questionBank.createBy}}</td>
+                <td>{{questionBank.createdTime | date:'medium'}}</td>
+                <td>{{questionBank.updatedBy}}</td>
+                <td>{{questionBank.updatedTime | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="questionBank.userInfoId">
+                        <a [routerLink]="['../user-info', questionBank.userInfoId , 'view' ]" >{{questionBank.userInfoId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="questionBank.scoreId">
+                        <a [routerLink]="['../score', questionBank.scoreId , 'view' ]" >{{questionBank.scoreId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="questionBank.subjectId">
+                        <a [routerLink]="['../subject', questionBank.subjectId , 'view' ]" >{{questionBank.subjectId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="questionBank.gradeId">
+                        <a [routerLink]="['../grade', questionBank.gradeId , 'view' ]" >{{questionBank.gradeId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="questionBank.chapterId">
+                        <a [routerLink]="['../chapter', questionBank.chapterId , 'view' ]" >{{questionBank.chapterId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="questionBank.topicId">
+                        <a [routerLink]="['../topic', questionBank.topicId , 'view' ]" >{{questionBank.topicId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/question-bank', questionBank.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fas fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/question-bank', questionBank.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <span class="fas fa-pencil-alt"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'question-bank/'+ questionBank.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fas fa-times"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

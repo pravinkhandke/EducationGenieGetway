@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contentReview">
+            <h2><span jhiTranslate="educationGenieApp.contentReview.detail.title">Content Review</span> {{contentReview.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="educationGenieApp.contentReview.raiting">Raiting</span></dt>
+                <dd>
+                    <span>{{contentReview.raiting}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.contentReview.review">Review</span></dt>
+                <dd>
+                    <span>{{contentReview.review}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.contentReview.createBy">Create By</span></dt>
+                <dd>
+                    <span>{{contentReview.createBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.contentReview.createdTime">Created Time</span></dt>
+                <dd>
+                    <span>{{contentReview.createdTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.contentReview.updatedBy">Updated By</span></dt>
+                <dd>
+                    <span>{{contentReview.updatedBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.contentReview.updatedTime">Updated Time</span></dt>
+                <dd>
+                    <span>{{contentReview.updatedTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.contentReview.content">Content</span></dt>
+                <dd>
+                    <div *ngIf="contentReview.contentId">
+                        <a [routerLink]="['/content', contentReview.contentId, 'view']">{{contentReview.contentId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/content-review', contentReview.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+
+{
+    "educationGenieApp": {
+        "questions" : {
+            "home": {
+                "title": "Questions",
+                "createLabel": "Ստեղծել նոր Questions",
+                "createOrEditLabel": "Ստեղծել կամ փոփոխել Questions",
+                "search": "Գտնել Questions"
+            },
+            "created": "Նոր Questions ստեղծված է {{ param }} նունացուցիչով",
+            "updated": "Questions թարմացվաց է {{ param }} նունացուցիչով",
+            "deleted": "Questions հեռացված է {{ param }}  նունացուցիչով",
+            "delete": {
+                "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Questions {{ id }}?"
+            },
+            "detail": {
+                "title": "Questions"
+            },
+            "options": "Options",
+            "answers": "Answers",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time",
+            "questionBank": "Question Bank"
+        }
+    }
+}

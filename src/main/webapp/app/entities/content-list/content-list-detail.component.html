@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contentList">
+            <h2><span jhiTranslate="educationGenieApp.contentList.detail.title">Content List</span> {{contentList.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="educationGenieApp.contentList.listTitle">List Title</span></dt>
+                <dd>
+                    <span>{{contentList.listTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.contentList.content">Content</span></dt>
+                <dd>
+                    <div *ngIf="contentList.contentId">
+                        <a [routerLink]="['/content', contentList.contentId, 'view']">{{contentList.contentId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/content-list', contentList.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

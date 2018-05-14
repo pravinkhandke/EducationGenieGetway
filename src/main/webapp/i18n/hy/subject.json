@@ -1,0 +1,25 @@
+
+{
+    "educationGenieApp": {
+        "subject" : {
+            "home": {
+                "title": "Subjects",
+                "createLabel": "Ստեղծել նոր Subject",
+                "createOrEditLabel": "Ստեղծել կամ փոփոխել Subject",
+                "search": "Գտնել Subject"
+            },
+            "created": "Նոր Subject ստեղծված է {{ param }} նունացուցիչով",
+            "updated": "Subject թարմացվաց է {{ param }} նունացուցիչով",
+            "deleted": "Subject հեռացված է {{ param }}  նունացուցիչով",
+            "delete": {
+                "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Subject {{ id }}?"
+            },
+            "detail": {
+                "title": "Subject"
+            },
+            "name": "Name",
+            "grade": "Grade",
+            "chapter": "Chapter"
+        }
+    }
+}

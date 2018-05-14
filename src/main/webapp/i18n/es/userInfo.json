@@ -1,0 +1,28 @@
+
+{
+    "educationGenieApp": {
+        "userInfo" : {
+            "home": {
+                "title": "User Infos",
+                "createLabel": "Crear nuevo User Info",
+                "createOrEditLabel": "Crear o editar User Info",
+                "search": "Search for User Info"
+            },
+            "created": "Un nuevo User Info ha sido creado con el identificador {{ param }}",
+            "updated": "Un User Info ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un User Info ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar User Info {{ id }}?"
+            },
+            "detail": {
+                "title": "User Info"
+            },
+            "userType": "User Type",
+            "userReview": "User Review",
+            "grade": "Grade",
+            "content": "Content",
+            "score": "Score",
+            "questionBank": "Question Bank"
+        }
+    }
+}

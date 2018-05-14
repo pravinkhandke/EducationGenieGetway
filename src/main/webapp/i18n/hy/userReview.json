@@ -1,0 +1,28 @@
+
+{
+    "educationGenieApp": {
+        "userReview" : {
+            "home": {
+                "title": "User Reviews",
+                "createLabel": "Ստեղծել նոր User Review",
+                "createOrEditLabel": "Ստեղծել կամ փոփոխել User Review",
+                "search": "Գտնել User Review"
+            },
+            "created": "Նոր User Review ստեղծված է {{ param }} նունացուցիչով",
+            "updated": "User Review թարմացվաց է {{ param }} նունացուցիչով",
+            "deleted": "User Review հեռացված է {{ param }}  նունացուցիչով",
+            "delete": {
+                "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել User Review {{ id }}?"
+            },
+            "detail": {
+                "title": "User Review"
+            },
+            "raiting": "Raiting",
+            "review": "Review",
+            "createBy": "Create By",
+            "createdTime": "Created Time",
+            "updatedBy": "Updated By",
+            "updatedTime": "Updated Time"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+
+{
+    "educationGenieApp": {
+        "contentList" : {
+            "home": {
+                "title": "Content Lists",
+                "createLabel": "Ստեղծել նոր Content List",
+                "createOrEditLabel": "Ստեղծել կամ փոփոխել Content List",
+                "search": "Գտնել Content List"
+            },
+            "created": "Նոր Content List ստեղծված է {{ param }} նունացուցիչով",
+            "updated": "Content List թարմացվաց է {{ param }} նունացուցիչով",
+            "deleted": "Content List հեռացված է {{ param }}  նունացուցիչով",
+            "delete": {
+                "question": "Դուք վստահ ե՞ք, որ ցանկանում եք հեռացնել Content List {{ id }}?"
+            },
+            "detail": {
+                "title": "Content List"
+            },
+            "listTitle": "List Title",
+            "content": "Content"
+        }
+    }
+}

@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="questionBank">
+            <h2><span jhiTranslate="educationGenieApp.questionBank.detail.title">Question Bank</span> {{questionBank.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="educationGenieApp.questionBank.title">Title</span></dt>
+                <dd>
+                    <span>{{questionBank.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.duration">Duration</span></dt>
+                <dd>
+                    <span>{{questionBank.duration}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.state">State</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'educationGenieApp.State.' + questionBank.state}}">{{questionBank.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.createBy">Create By</span></dt>
+                <dd>
+                    <span>{{questionBank.createBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.createdTime">Created Time</span></dt>
+                <dd>
+                    <span>{{questionBank.createdTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.updatedBy">Updated By</span></dt>
+                <dd>
+                    <span>{{questionBank.updatedBy}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.updatedTime">Updated Time</span></dt>
+                <dd>
+                    <span>{{questionBank.updatedTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.userInfo">User Info</span></dt>
+                <dd>
+                    <div *ngIf="questionBank.userInfoId">
+                        <a [routerLink]="['/user-info', questionBank.userInfoId, 'view']">{{questionBank.userInfoId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.score">Score</span></dt>
+                <dd>
+                    <div *ngIf="questionBank.scoreId">
+                        <a [routerLink]="['/score', questionBank.scoreId, 'view']">{{questionBank.scoreId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.subject">Subject</span></dt>
+                <dd>
+                    <div *ngIf="questionBank.subjectId">
+                        <a [routerLink]="['/subject', questionBank.subjectId, 'view']">{{questionBank.subjectId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.grade">Grade</span></dt>
+                <dd>
+                    <div *ngIf="questionBank.gradeId">
+                        <a [routerLink]="['/grade', questionBank.gradeId, 'view']">{{questionBank.gradeId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.chapter">Chapter</span></dt>
+                <dd>
+                    <div *ngIf="questionBank.chapterId">
+                        <a [routerLink]="['/chapter', questionBank.chapterId, 'view']">{{questionBank.chapterId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="educationGenieApp.questionBank.topic">Topic</span></dt>
+                <dd>
+                    <div *ngIf="questionBank.topicId">
+                        <a [routerLink]="['/topic', questionBank.topicId, 'view']">{{questionBank.topicId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fas fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/question-bank', questionBank.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fas fa-pencil-alt"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
