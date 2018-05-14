@@ -1,0 +1,20 @@
+version: '2'
+services:
+    educationgenie-app:
+        image: educationgenie
+        environment:
+            # - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://educationgenie-mysql:3306/educationgenie?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=educationgenie-elasticsearch:9300
+        ports:
+            - 8080:8080
+    educationgenie-mysql:
+        extends:
+            file: mysql.yml
+            service: educationgenie-mysql
+    educationgenie-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: educationgenie-elasticsearch
